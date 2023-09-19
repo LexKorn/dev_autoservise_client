@@ -1,0 +1,52 @@
+.calc
+    margin-top: 70px
+    &__title
+        text-align: center
+    &__form
+        display: flex
+        justify-content: center
+        &_date
+            margin-right: 40px
+        &_drop
+            margin-top: 40px
+    &__btn
+        margin: 30px auto 0
+        display: block
+    &__result
+        margin: 30px auto
+        width: 500px
+        &_title
+            font-size: 16px
+        &_answer
+            color: darkgrey
+            span
+                font-size: 18px
+                color: black
+                font-weight: bold
+            &.total
+                font-weight: bold
+                font-size: 17px
+
+@media (max-width: 767px)
+    .calc
+        &__form
+            flex-direction: column
+            &_date
+                margin-right: 0
+            &_drop
+                margin-top: 30px
+        &__btn
+            margin: 30px 0
+
+@media (max-width: 575px)
+    .calc
+        &__title
+            font-size: 20px
+        &__result
+            width: unset
+            &_title
+                font-size: 16px
+            &_answer
+                font-size: 15px
+                span
+                    font-size: 16px

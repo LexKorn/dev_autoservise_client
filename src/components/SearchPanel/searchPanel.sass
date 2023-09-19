@@ -1,0 +1,42 @@
+.sort
+    margin: 15px auto 20px
+    width: 70%
+    &__title
+        padding-left: 5px
+        margin-bottom: 10px
+    &__btns
+        display: flex
+        justify-content: start
+    &__btn
+        width: 150px
+        height: 40px
+        border: none
+        border-radius: 15px
+        margin-right: 20px
+        background-color: #e8eded
+        &:hover
+            background-color: #222222
+            color: white
+.search
+    width: 70%
+    display: block
+    margin: 0 auto
+    border: none
+    border-bottom: 1px solid darkgrey
+    padding: 7px
+
+@media ( max-width: 1119px )
+    .sort__btn
+        width: 120px
+
+@media ( max-width: 767px )
+    .sort
+        width: 100%
+        &__btns
+            margin: 20px auto
+            display: grid
+            grid-template-columns: repeat(auto-fit, 120px)
+            gap: 20px
+            justify-content: center
+    .search
+        width: 100%

@@ -1,0 +1,25 @@
+.order-card
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    margin-top: 15px
+    padding: 10px
+    font-size: 18px
+    line-height: 35px
+    cursor: pointer
+    &__date
+        display: flex
+        flex-direction: row
+        color: darkgrey
+        font-size: 16px
+    &__common
+        display: flex
+        flex-direction: column
+    &__closed
+        font-weight: bold
+    &__master
+        color: darkgrey
+
+@media (max-width: 991px)
+    .order-card
+        font-size: 16px
