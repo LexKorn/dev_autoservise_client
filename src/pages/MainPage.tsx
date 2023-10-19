@@ -53,7 +53,9 @@ const MainPage: React.FC = observer(() => {
 
 
     return (        
-        <Container>
+        <Container
+            style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}
+        >
             <Helmet>
                 <title>Список заказов</title>
                 <meta name="description" content="Список заказов" />

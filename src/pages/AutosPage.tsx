@@ -43,7 +43,9 @@ const AutosPage: React.FC = observer(() => {
     
 
     return (
-        <Container>
+        <Container
+            style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}
+        >
             <Helmet>
                 <title>Список автомобилей</title>
                 <meta name="description" content="Список автомобилей" />
