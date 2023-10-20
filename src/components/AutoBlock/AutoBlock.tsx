@@ -68,7 +68,7 @@ const AutoBlock: React.FunctionComponent = () => {
                 <meta name="description" content={`Страничка ${stamp.stamp} ${model.model}`} />
             </Helmet>
 
-            <div className="auto" id='up2'>
+            <div className="auto">
                     <div className="auto__name">{`${stamp.stamp} ${model.model} ${auto.year ? auto.year : ''}`}</div>
                     <div className="auto__description">гос.номер: <span>{auto.stateNumber}</span></div>
                     {auto.vin && <div className="auto__description">VIN: <span>{auto.vin}</span></div>}

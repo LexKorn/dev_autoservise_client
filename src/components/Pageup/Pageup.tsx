@@ -23,7 +23,7 @@ const Pageup: React.FC = () => {
     }, []);
 
     return (
-        <a href={location.pathname === MAIN_ROUTE ? '#up' : location.pathname === AUTOS_ROUTE ? '#up' : '#up2'} className='pageup' style={{display : scrollTop > 500 ? 'block' : 'none' }}>
+        <a href="#root" className='pageup' style={{display : scrollTop > 500 ? 'block' : 'none' }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" viewBox="0 0 110 110" fill="none">
                 <g filter="url(#filter0_d_17_399)">
                     <g clipPath="url(#clip0_17_399)">

@@ -20,7 +20,7 @@ const Statistics: React.FC = observer(() => {
 
     return (
         <>
-            <div className='statistics' id='up'>
+            <div className='statistics'>
                 <div className='statistics__icons'>
                     <NavLink to={MAIN_ROUTE} className='statistics__icons_link'><i className="bi bi-gear"></i>{quantityOrders}</NavLink>
                     <NavLink to={AUTOS_ROUTE} className='statistics__icons_link'><i className="bi bi-car-front-fill"></i> {quantityAutos}</NavLink>

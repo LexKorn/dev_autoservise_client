@@ -118,13 +118,16 @@ const SearchPanelOrders: React.FC<SearchPanelOrdersProps> = observer(({orders, s
                     </Dropdown>  
                 </div>                
             </div>
-            <input 
-                className='search' 
-                type='text' 
-                placeholder='Начните вводить марку или модель' 
-                value={value}
-                onChange={e => setValue(e.target.value)}
-            />            
+            <div className='search'>
+                <input 
+                    className='search__input' 
+                    type='text' 
+                    placeholder='Начните вводить марку или модель' 
+                    value={value}
+                    onChange={e => setValue(e.target.value)}
+                />            
+                {Boolean(value) && <i className="bi bi-x-circle search__icon" onClick={() => setValue('')}></i>}
+            </div>
         </>
     );
 });

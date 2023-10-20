@@ -74,13 +74,16 @@ const SearchPanel: React.FC<SearchPanelProps> = ({autos, stamps, models}) => {
                     <button className='sort__btn' onClick={sortDate}>Время добавления</button>
                 </div>                
             </div>
-            <input 
-                className='search' 
-                type='text' 
-                placeholder='Начните вводить марку, модель или гос.номер' 
-                value={value}
-                onChange={e => setValue(e.target.value)}
-            />            
+            <div className='search'>
+                <input 
+                    className='search__input' 
+                    type='text' 
+                    placeholder='Начните вводить марку, модель или гос.номер' 
+                    value={value}
+                    onChange={e => setValue(e.target.value)}
+                />            
+                {Boolean(value) && <i className="bi bi-x-circle search__icon" onClick={() => setValue('')}></i>}
+            </div>
         </>
     );
 };
