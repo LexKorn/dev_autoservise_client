@@ -87,7 +87,7 @@ const CUAuto: React.FC<CUAutoProps> = observer(({id, year, vin, stateNumber, own
                 <Form>
                     <Dropdown className="mt-3 mb-3">
                         <Dropdown.Toggle variant={"outline-dark"}>{service.selectedStamp.stamp || 'Марка'}</Dropdown.Toggle>
-                        <Dropdown.Menu>
+                        <Dropdown.Menu style={{ maxHeight: "200px", overflowY: "scroll" }} >
                             {service.stamps.map(stamp => 
                                 <Dropdown.Item 
                                     onClick={() => service.setSelectedStamp(stamp)} 
@@ -100,7 +100,7 @@ const CUAuto: React.FC<CUAutoProps> = observer(({id, year, vin, stateNumber, own
                     </Dropdown>  
                     <Dropdown className="mt-3 mb-3">
                         <Dropdown.Toggle variant={"outline-dark"}>{service.selectedModel.model || 'Модель'}</Dropdown.Toggle>
-                        <Dropdown.Menu>
+                        <Dropdown.Menu style={{ maxHeight: "200px", overflowY: "scroll" }} >
                             {service.models.map(model => 
                                 <Dropdown.Item 
                                     onClick={() => service.setSelectedModel(model)} 

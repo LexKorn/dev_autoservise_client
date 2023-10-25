@@ -93,7 +93,7 @@ const CUOrder: React.FC<CUOrderProps> = observer(({id, opened, closed, income, c
                             />
                             <Dropdown className="mt-3 mb-3">
                                 <Dropdown.Toggle variant={"outline-dark"}>{service.selectedMaster.master || 'Мастер'}</Dropdown.Toggle>
-                                <Dropdown.Menu>
+                                <Dropdown.Menu style={{ maxHeight: "200px", overflowY: "scroll" }} >
                                     {service.masters.map(master => 
                                         <Dropdown.Item 
                                             onClick={() => service.setSelectedMaster(master)} 

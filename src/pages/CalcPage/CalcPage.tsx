@@ -126,7 +126,7 @@ const CalcPage: React.FC = () => {
                 
                 <Dropdown className="calc__form_drop" >
                     <Dropdown.Toggle variant={"outline-dark"} disabled={visible ? true : false}>{filMast.master || 'Мастер'}</Dropdown.Toggle>
-                    <Dropdown.Menu>
+                    <Dropdown.Menu style={{ maxHeight: "200px", overflowY: "scroll" }} >
                         {masters.map(master => 
                             <Dropdown.Item 
                                 onClick={() => setFilMast(master)} 

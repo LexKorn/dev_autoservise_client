@@ -105,7 +105,7 @@ const SearchPanelOrders: React.FC<SearchPanelOrdersProps> = observer(({orders, s
 
                     <Dropdown>
                         <Dropdown.Toggle variant={"outline-dark"}>{filMast.master || 'Мастер'}</Dropdown.Toggle>
-                        <Dropdown.Menu>
+                        <Dropdown.Menu style={{ maxHeight: "200px", overflowY: "scroll" }} >
                             {service.masters.map(master => 
                                 <Dropdown.Item 
                                     onClick={() => setFilMast(master)} 
