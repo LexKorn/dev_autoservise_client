@@ -35,8 +35,8 @@ const CUAuto: React.FC<CUAutoProps> = observer(({id, year, vin, stateNumber, own
     const [item, setItem] = useState<string>('');
 
     useEffect(() => {
-        fetchStamps().then(data => service.setStamps(data));
-        fetchModels().then(data => service.setModels(data));
+        fetchStamps().then(data => service.setStamps(data.sort((a: IStamp, b: IStamp) => a.stamp > b.stamp ? 1 : -1)));
+        fetchModels().then(data => service.setModels(data.sort((a: IModel, b: IModel) => a.model > b.model ? 1 : -1)));
     }, [visible]);
 
 

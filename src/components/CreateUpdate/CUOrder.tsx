@@ -6,6 +6,7 @@ import { observer } from 'mobx-react-lite';
 import { Context } from '../../index';
 import { fetchMasters } from '../../http/mastersAPI';
 import {MAIN_ROUTE} from '../../utils/consts';
+import { IMaster } from '../../types/types';
 import ModalCommon from '../Modals/ModalCommon';
 
 interface CUOrderProps {
@@ -34,7 +35,7 @@ const CUOrder: React.FC<CUOrderProps> = observer(({id, opened, closed, income, c
     const [item, setItem] = useState<string>('');
 
     useEffect(() => {
-        fetchMasters().then(data => service.setMasters(data));
+        fetchMasters().then(data => service.setMasters(data.sort((a: IMaster, b: IMaster) => a.master > b.master ? 1 : -1)));
     }, [visible]);
 
     const onClick = () => {

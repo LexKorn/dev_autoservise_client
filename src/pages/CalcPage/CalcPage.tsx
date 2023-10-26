@@ -31,7 +31,7 @@ const CalcPage: React.FC = () => {
     const [autopartsPrice, setAutopartsPrice] = useState<number>(0);
     
     useEffect(() => {
-        fetchMasters().then(data => setMasters(data));
+        fetchMasters().then(data => setMasters(data.sort((a: IMaster, b: IMaster) => a.master > b.master ? 1 : -1)));
         fetchOrders().then(data => setOrders(data));
         fetchActivities().then(data => setActivities(data));
         fetchAutoparts().then(data => {

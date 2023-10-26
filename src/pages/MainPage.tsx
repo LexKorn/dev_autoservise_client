@@ -9,7 +9,7 @@ import OrderItem from '../components/OrderItem/OrderItem';
 import Statistics from '../components/Statistics/Statistics';
 import SearchPanelOrders from '../components/SearchPanel/SearchPanelOrders';
 import Pageup from '../components/Pageup/Pageup';
-import { IOrder } from '../types/types';
+import { IMaster, IOrder } from '../types/types';
 import { Context } from '../index';
 import { fetchOrders } from '../http/ordersAPI';
 import { fetchStamps } from '../http/stampsAPI';
@@ -42,7 +42,7 @@ const MainPage: React.FC = observer(() => {
             .catch(err => alert(err.message));
 
         fetchMasters()
-            .then(data => service.setMasters(data))
+            .then(data => service.setMasters(data.sort((a: IMaster, b: IMaster) => a.master > b.master ? 1 : -1)))
             .catch(err => alert(err.message));
 
         fetchActivities()
