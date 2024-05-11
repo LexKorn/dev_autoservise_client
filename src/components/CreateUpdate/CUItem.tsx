@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {Container, Button, Form } from 'react-bootstrap';
 
 interface CUItemProps {
@@ -16,6 +16,8 @@ interface CUItemProps {
 
 
 const CUItem: React.FC<CUItemProps> = ({id, name, setName, price, setPrice, orderId, handler, title, btnName, onHide}) => {
+    const inputRef = useRef(null);
+
     const onClick = () => {
         if (!name.trim() || !price) {
             return alert('Поля обязательны для заполнения');
@@ -41,6 +43,11 @@ const CUItem: React.FC<CUItemProps> = ({id, name, setName, price, setPrice, orde
         }
     };
 
+    const handleInputClick = () => {
+        //@ts-ignore
+        inputRef.current.select();
+    };
+
     let toggle: boolean = false;
 
     if (title === 'Добавить работу' || title === 'Обновить работу') {
@@ -60,6 +67,8 @@ const CUItem: React.FC<CUItemProps> = ({id, name, setName, price, setPrice, orde
                 />
                 <label htmlFor="name" className="mt-3">Стоимость</label> 
                 <Form.Control
+                    ref={inputRef}
+                    onClick={handleInputClick}
                     value={price}
                     type="number"
                     onChange={e => setPrice(+e.target.value)}

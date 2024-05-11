@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {Container, Button, Form, Dropdown} from 'react-bootstrap';
 import { observer } from 'mobx-react-lite';
@@ -33,6 +33,7 @@ const CUAuto: React.FC<CUAutoProps> = observer(({id, year, vin, stateNumber, own
     const navigate = useNavigate();
     const [visible, setVisible] = useState<boolean>(false);
     const [item, setItem] = useState<string>('');
+    const inputRef = useRef(null);
 
     useEffect(() => {
         fetchStamps().then(data => service.setStamps(data.sort((a: IStamp, b: IStamp) => a.stamp > b.stamp ? 1 : -1)));
@@ -79,6 +80,11 @@ const CUAuto: React.FC<CUAutoProps> = observer(({id, year, vin, stateNumber, own
         setItem('model');
     };
 
+    const handleInputClick = () => {
+        //@ts-ignore
+        inputRef.current.select();
+    };
+
 
     return (
         <Container className="d-flex justify-content-center">
@@ -115,6 +121,8 @@ const CUAuto: React.FC<CUAutoProps> = observer(({id, year, vin, stateNumber, own
                     <Form.Control
                         value={year}
                         type="number"
+                        ref={inputRef}
+                        onClick={handleInputClick}
                         onChange={e => setYear(+e.target.value)}
                         placeholder="Год выпуска"
                     />

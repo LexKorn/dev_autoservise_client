@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {Container, Button, Form, Dropdown, Modal} from 'react-bootstrap';
 import { observer } from 'mobx-react-lite';
@@ -33,6 +33,7 @@ const CUOrder: React.FC<CUOrderProps> = observer(({id, opened, closed, income, c
     const navigate = useNavigate();
     const [visible, setVisible] = useState<boolean>(false);
     const [item, setItem] = useState<string>('');
+    const inputRef = useRef(null);
 
     useEffect(() => {
         fetchMasters().then(data => service.setMasters(data.sort((a: IMaster, b: IMaster) => a.master > b.master ? 1 : -1)));
@@ -62,6 +63,11 @@ const CUOrder: React.FC<CUOrderProps> = observer(({id, opened, closed, income, c
     const showMaster = () => {
         setVisible(true);
         setItem('master');
+    };
+
+    const handleInputClick = () => {
+        //@ts-ignore
+        inputRef.current.select();
     };
 
 
@@ -109,6 +115,8 @@ const CUOrder: React.FC<CUOrderProps> = observer(({id, opened, closed, income, c
                             <Form.Control
                                 value={income}
                                 type="number"
+                                ref={inputRef}
+                                onClick={handleInputClick}
                                 onChange={e => setIncome(+e.target.value)}
                                 placeholder="Оплачено"
                             />
